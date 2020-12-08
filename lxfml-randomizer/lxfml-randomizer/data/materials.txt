@@ -1,0 +1,13 @@
+monochromatic{
+	black:"26,0",
+	white:"1,0",
+	darkGray:"199,0",
+	lightGray:"194,0"
+}
+
+colors{
+	red:"21",
+	yellow:"24",
+	green:"28",
+	blue:"23",
+}
