@@ -1,6 +1,5 @@
-.vs/
-lxfml-randomizer/.vs
-Randomizer.exe
+**/.vs
+**.exe
 **.sln
 lxfml-randomizer/bin
 lxfml-randomizer/data
