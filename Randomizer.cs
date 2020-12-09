@@ -51,8 +51,8 @@ namespace lxfml_randomizer
 			string[] materials = {mwhite, mblack, mdarkGray, mlightGray, mred, myellow, mgreen, mblue}; //array with all the materials to randomize from
 
 			//how should generated file start and end, stored in txt files so you can change it
-			string documentstart = System.IO.File.ReadAllText(@".\lxfml-randomizer\lxfml-randomizer\data\documentstart.txt");
-			string documentend = System.IO.File.ReadAllText(@".\lxfml-randomizer\lxfml-randomizer\data\documentend.txt");
+			string documentstart = System.IO.File.ReadAllText(@".\data\documentstart.txt");
+			string documentend = System.IO.File.ReadAllText(@".\data\documentend.txt");
 
 			Console.WriteLine("lxfml-randomizer\nPlease be patient...");
 			var r = new Random();
@@ -91,7 +91,7 @@ namespace lxfml_randomizer
 				string material = materials[r.Next(0, materialsmaxrand)];
 
 				//load brick template and insert current brick values
-				brick = (System.IO.File.ReadAllText(@".\lxfml-randomizer\lxfml-randomizer\data\bricktemplate.txt")).Replace("!REFID", refid.ToString()).
+				brick = (System.IO.File.ReadAllText(@".\data\bricktemplate.txt")).Replace("!REFID", refid.ToString()).
 				Replace("!DESIGNID", designid).
 				Replace("!MATERIALS", material).
 				Replace("!XPOS", (xpos.ToString()).Replace(",",".")).
