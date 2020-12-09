@@ -1,6 +1,6 @@
-<Brick refID="!REFID" designID="!DESIGNID">
-		<Part refID="!REFID" designID="!DESIGNID" materials="!MATERIALS">
-				<Bone refID="!REFID" transformation="1,0,0,0,1,0,0,0,1,!XPOS,!YPOS,!ZPOS">
-					</Bone>
-    </Part>
-</Brick>
+			<Brick refID="!REFID" designID="!DESIGNID">
+					<Part refID="!REFID" designID="!DESIGNID" materials="!MATERIALS">
+							<Bone refID="!REFID" transformation="1,0,0,0,1,0,0,0,1,!XPOS,!YPOS,!ZPOS">
+							</Bone>
+    			</Part>
+			</Brick>
