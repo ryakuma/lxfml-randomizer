@@ -8,7 +8,7 @@ namespace lxfml_randomizer
 			//reading block amount and field size from user
 			Console.WriteLine("How many blocks do you want in your file?\nkeep it under 5000 if you care about loading times");
 			int blockamount = Convert.ToInt32(Console.ReadLine());
-			Console.WriteLine("How big should be the field in which blocks are placed?\nmax X&Z is input/2, min X&Z is -(input/2)");
+			Console.WriteLine("How big should be the field in which blocks are placed?\nYour input will be max X and Z, min X and Z are -input");
 			int blockposmax = Convert.ToInt32(Console.ReadLine());
 
 			//declaring some variables used later
@@ -24,9 +24,7 @@ namespace lxfml_randomizer
 			decimal horizontalunit = 0.8M;
 			decimal verticalunit = 0.96M;
 
-			blockposmax = blockposmax/2;
 			int blockposmin = -blockposmax;
-			//int blockheightmax = 3; //not used for now
 
 			//bricks | b - brick, 1x1 - 1 by 1 block, etc., value is an ID of that brick
 			string b1x1 = "3005";
@@ -49,10 +47,6 @@ namespace lxfml_randomizer
 			string mgreen = "28";
 			string mblue = "23";
 			string[] materials = {mwhite, mblack, mdarkGray, mlightGray, mred, myellow, mgreen, mblue}; //array with all the materials to randomize from
-
-			//how should generated file start and end, stored in txt files so you can change it
-			string documentstart = System.IO.File.ReadAllText(@".\data\documentstart.txt");
-			string documentend = System.IO.File.ReadAllText(@".\data\documentend.txt");
 
 			Console.WriteLine("lxfml-randomizer\nPlease be patient...");
 			var r = new Random();
@@ -100,12 +94,10 @@ namespace lxfml_randomizer
 
 				//keep current bricks in memory
 				bricks_file = bricks_file+brick;
-				Console.WriteLine("Block no. " + (i+1) + " generated.	|	" + DateTime.Now.TimeOfDay);
 			}
-			string fileoutput = documentstart + bricks_file + documentend; //whole output to a single variable
-			System.IO.File.WriteAllText(@".\randomized.lxfml", fileoutput); //output to a file
-			Console.WriteLine("\n============================\nFile generated!	|	" + DateTime.Now.TimeOfDay);
-			System.Threading.Thread.Sleep(1000);
+			//string fileoutput = System.IO.File.ReadAllText(@".\data\documentstart.txt") + bricks_file + System.IO.File.ReadAllText(@".\data\documentend.txt"); //whole output to a single variable
+			System.IO.File.WriteAllText(@".\randomized.lxfml", (System.IO.File.ReadAllText(@".\data\documentstart.txt") + bricks_file + System.IO.File.ReadAllText(@".\data\documentend.txt"))); //output to a file
+			Console.WriteLine("============================\nFile generated!	|	" + DateTime.Now.TimeOfDay);
 		}
 	}
 }
